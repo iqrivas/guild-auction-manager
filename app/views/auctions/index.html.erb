@@ -1,0 +1,9 @@
+<h1>Auctions</h1>
+<p> Next Events: </p>
+<ul>
+    <% @auctions.each do |auction| %>
+        <li>
+            <%= auction.title %>: <%= auction.date %>
+        </li>
+    <% end %>
+</ul>
