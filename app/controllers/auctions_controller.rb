@@ -12,6 +12,10 @@ class AuctionsController < ApplicationController
     redirect_to auctions_path
   end
 
+  def show
+    @auction = Auction.find params[:id]
+  end
+
   def edit
   end
 

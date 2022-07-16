@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'auctions/', to:"auctions#index"
   post 'auctions/', to:"auctions#create"
   get 'auctions/new'
+  get 'auctions/:id', to:"auctions#show", as: "show_auction"
   get 'auctions/edit'
 
   get 'greetings/hello'

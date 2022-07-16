@@ -3,8 +3,8 @@
 <ul>
     <% @auctions.each do |auction| %>
         <li>
-            on <%= auction.date %>: <%= auction.title %>
-        </li>
+            on <%= auction.date %>: <%= link_to auction.title, show_auction_path(id:auction.id) %>
+        </li> 
     <% end %>
 </ul>
 
