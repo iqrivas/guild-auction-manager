@@ -3,7 +3,9 @@
 <ul>
     <% @auctions.each do |auction| %>
         <li>
-            <%= auction.title %>: <%= auction.date %>
+            <%= auction.title %> on <%= auction.date %>
         </li>
     <% end %>
 </ul>
+
+<%= link_to "New Auction", "auctions/new" %>
