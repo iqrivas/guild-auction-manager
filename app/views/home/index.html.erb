@@ -1,1 +1,6 @@
-<h1> Es la michi </h1>
+
+<h1> Es la michi, <%= @nombre %> </h1>
+<p> Estos son los skills: </p>
+<% @skills.each do |skill| %>
+    <ul><%= skill %></ul>
+<% end %>
