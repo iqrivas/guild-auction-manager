@@ -3,6 +3,10 @@ class GreetingsController < ApplicationController
   end
 
   def hello_name
+    @name = params[:name]
+    @favorites = params[:favorites]
+    @list = @favorites.split(",")
+
   end
 
   def goodbye

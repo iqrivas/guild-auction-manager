@@ -1,2 +1,12 @@
 <h1>Greetings#hello_name</h1>
-<p>Hola, Vaquero!</p>
+<% if @name %>
+    <p>Hola, <%= @name %>! </p>
+    <p>Your favorite things are:</p>
+    <ul>
+        <% @list.each do |favorite| %>
+            <li><%= favorite %></li>
+        <%end%>
+    </ul>
+<% else %>
+<p> Hola, Vaquero! </p>
+<% end %>

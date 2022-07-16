@@ -2,5 +2,8 @@
 <p>Enter your name to receive a greeting</p>
 <%= form_with url: "/greetings/hello-name", data: {turbo: "false"} do |f| %>
     <%= f.text_field :name %>
+    <p> Tell me some of your favorite things: (separate with commas) </p>
+    <%= f.text_field :favorites %>
+    </br></br>
     <%= f.submit "Send" %>
 <%end%>
