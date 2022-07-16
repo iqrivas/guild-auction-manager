@@ -3,7 +3,7 @@
 <ul>
     <% @auctions.each do |auction| %>
         <li>
-            <%= auction.title %> on <%= auction.date %>
+            on <%= auction.date %>: <%= auction.title %>
         </li>
     <% end %>
 </ul>

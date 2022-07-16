@@ -8,9 +8,14 @@ class AuctionsController < ApplicationController
   end
 
   def create
-    @auction = Auction.create title:params[:auction][:title], date:params[:auction][:date], status:params[:auction][:status]
+    @auction = Auction.create auction_params_create
+    redirect_to auctions_path
   end
 
   def edit
+  end
+
+  def auction_params_create
+    params.require(:auction).permit(:title, :date, :status)
   end
 end
