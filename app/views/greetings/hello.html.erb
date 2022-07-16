@@ -1,0 +1,6 @@
+<h1>Greetings#hello</h1>
+<p>Enter your name to receive a greeting</p>
+<%= form_with url: "/greetings/hello-name", data: {turbo: "false"} do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Send" %>
+<%end%>
