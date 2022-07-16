@@ -1,5 +1,5 @@
-<h1>Create New Auction</h1>
-<%= form_with model:@auction do |f| %>
+<h1>Update Auction Details</h1>
+<%= form_with model:@auction  do |f| %>
     <div>
         <%= f.label :title %>
         <%= f.text_field :title %>
@@ -12,7 +12,11 @@
         <%= f.label :status %>
         <%= f.select :status, ["Planned", "In Progress", "Completed", "Cancelled"] %>
     </div>
-    <%= f.submit "Create" %>
+    <div>
+        <%= f.label :amount_collected %>
+        <%= f.number_field :amount_collected %>
+    </div>
+    <%= f.submit "Update" %>
 <% end %>
 
 <%= link_to "Home", auctions_path %>

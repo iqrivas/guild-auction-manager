@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'auctions/', to:"auctions#index"
-  post 'auctions/', to:"auctions#create"
-  get 'auctions/new'
+  get 'auctions/', to:"auctions#index", as: "auctions"
+  get 'auctions/new', to:"auctions#new", as: "new_auction"
   get 'auctions/:id', to:"auctions#show", as: "show_auction"
-  get 'auctions/edit'
+  get 'auctions/:id/edit', to:"auctions#edit", as: "edit_auction"
+
+  post 'auctions/', to:"auctions#create"
+  patch 'auctions/:id', to:"auctions#update", as: "auction"
 
   get 'greetings/hello'
   get 'greetings/hello-name', to='greetings#hello_name'

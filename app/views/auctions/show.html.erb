@@ -4,4 +4,5 @@
 <p> Status: <%= @auction.status %> </p>
 <p> Amount Collected: <%= @auction.amount_collected %> </p>
 
-<%= link_to "Home", "/auctions/" %>
+<%= link_to "Edit Details", edit_auction_path(id:@auction.id)  %> </br>
+<%= link_to "Home", auctions_path %>
