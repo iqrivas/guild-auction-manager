@@ -9,6 +9,9 @@
 #  is_bundle      :boolean
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  auction_id     :integer          not null
+#  item_id        :integer          not null
+#  member_id      :integer          not null
 #
 require "test_helper"
 

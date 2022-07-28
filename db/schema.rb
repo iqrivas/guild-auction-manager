@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_28_040247) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_28_052327) do
   create_table "auction_items", force: :cascade do |t|
     t.integer "opening_bid"
     t.integer "sold_for"
@@ -18,6 +18,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_040247) do
     t.boolean "is_bundle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "auction_id", null: false
+    t.integer "item_id", null: false
+    t.integer "member_id", null: false
+    t.index ["auction_id"], name: "index_auction_items_on_auction_id"
+    t.index ["item_id"], name: "index_auction_items_on_item_id"
+    t.index ["member_id"], name: "index_auction_items_on_member_id"
   end
 
   create_table "auctions", force: :cascade do |t|
@@ -32,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_040247) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "quality"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,4 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_040247) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "auction_items", "auctions"
+  add_foreign_key "auction_items", "items"
+  add_foreign_key "auction_items", "members"
 end

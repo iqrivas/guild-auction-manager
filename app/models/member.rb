@@ -11,4 +11,5 @@
 #  updated_at :datetime         not null
 #
 class Member < ApplicationRecord
+    has_many :auction_items
 end
