@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Auction items</h1>
+
+<div id="auction_items">
+  <% @auction_items.each do |auction_item| %>
+    <%= render auction_item %>
+    <p>
+      <%= link_to "Show this auction item", auction_item %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New auction item", new_auction_item_path %>
