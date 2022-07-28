@@ -1,4 +1,8 @@
+# == Route Map
+#
+
 Rails.application.routes.draw do
+  resources :members
   get 'auctions/', to:"auctions#index", as: "auctions"
   get 'auctions/new', to:"auctions#new", as: "new_auction"
   get 'auctions/:id', to:"auctions#show", as: "show_auction"
