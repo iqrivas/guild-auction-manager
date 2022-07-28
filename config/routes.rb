@@ -2,6 +2,7 @@
 #
 
 Rails.application.routes.draw do
+  resources :items
   resources :auction_items
   resources :members
   get 'auctions/', to:"auctions#index", as: "auctions"
