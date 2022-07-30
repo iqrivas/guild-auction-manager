@@ -1,7 +1,15 @@
-<h1>Auctions</h1>
+<h1>Guild Auctions</h1>
 <p> Next Events: </p>
 <ul>
-    <% @auctions.each do |auction| %>
+    <% @planned_auctions.each do |auction| %>
+        <li>
+            on <%= auction.date %>: <%= link_to auction.title, show_auction_path(id:auction.id) %>
+        </li> 
+    <% end %>
+</ul>
+<p> Completed Events: </p>
+<ul>
+    <% @completed_auctions.each do |auction| %>
         <li>
             on <%= auction.date %>: <%= link_to auction.title, show_auction_path(id:auction.id) %>
         </li> 
