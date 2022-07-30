@@ -10,6 +10,11 @@
       </ul>
     </div>
   <% end %>
+  
+  <div>
+    <%= form.label :item_id, style: "display: block" %>
+    <%= form.number_field :item_id %>
+  </div>
 
   <div>
     <%= form.label :opening_bid, style: "display: block" %>
@@ -19,6 +24,11 @@
   <div>
     <%= form.label :sold_for, style: "display: block" %>
     <%= form.number_field :sold_for %>
+  </div>
+
+  <div>
+    <%= form.label :buyer, style: "display: block" %>
+    <%= form.number_field :member_id %>
   </div>
 
   <div>

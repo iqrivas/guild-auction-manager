@@ -13,7 +13,7 @@ item1 = Item.create(name: "Item 1", quality: "Purple", category: "Furnishings")
 item2 = Item.create(name: "Item 2", quality: "Green", category: "Motifs")
 item3 = Item.create(name: "Item 3", quality: "Blue", category: "Non-combat Pet")
 
-auction1 = Auction.create(title: "July Auction", date: Date.new(2022,7,25), status: "Planned")
+auction1 = Auction.create(title: "July Auction", date: Date.new(2022,7,25), status: "Completed")
 auction2 = Auction.create(title: "August Auction", date: Date.new(2022,8,25), status: "Planned")
 
 auction_item1 = AuctionItem.create(opening_bid: 100, sold_for: nil, payment_status: "Pending", is_bundle: false, auction_id: auction1.id, item_id: item1.id, member_id: member1.id)
