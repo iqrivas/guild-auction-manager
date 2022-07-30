@@ -6,3 +6,20 @@
 
 <%= link_to "Edit Details", edit_auction_path(id:@auction.id)  %> </br>
 <%= link_to "Home", auctions_path %>
+
+<h3> Auction Items </h3>
+<ul>
+    <% @auction_items.each do |a_item| %>
+        <li>
+            <%= a_item.item.name %> 
+            <%= link_to "Edit", edit_auction_item_path(a_item.id)  %>
+            <ul>
+                <li><strong>Quality:</strong> <%= a_item.item.quality %></li>
+                <li><strong>Opening Bid:</strong> <%= a_item.opening_bid %></li>
+                <li><strong>Sold for:</strong> <%= a_item.sold_for%></li>
+                <li><strong>Buyer:</strong> <%= a_item.member.username%></li>
+                <li><strong>Payment Status:</strong> <%= a_item.payment_status%></li>
+            </ul>
+        </li>
+    <% end %>
+</ul>

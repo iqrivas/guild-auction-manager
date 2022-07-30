@@ -16,4 +16,7 @@ class Auction < ApplicationRecord
     has_many :items, through: :auction_items
     has_many :members, through: :auction_items
 
+    validates :title, presence: true
+    validates :title, length: { maximum: 255 }
+
 end

@@ -15,6 +15,7 @@ class AuctionsController < ApplicationController
   end
 
   def show
+    @auction_items = AuctionItem.where(auction_id: @auction.id)
   end
 
   def edit
