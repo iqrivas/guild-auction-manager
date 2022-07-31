@@ -33,7 +33,7 @@
 
   <div>
     <%= form.label :payment_status, style: "display: block" %>
-    <%= form.text_field :payment_status %>
+    <%= form.select :payment_status, options_for_select(AuctionItem.payment_statuses.keys, auction_item.payment_status) %>
   </div>
 
   <div>

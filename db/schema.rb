@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_28_052327) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_31_005209) do
   create_table "auction_items", force: :cascade do |t|
     t.integer "opening_bid"
     t.integer "sold_for"
-    t.string "payment_status"
+    t.integer "payment_status", default: 0
     t.boolean "is_bundle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_052327) do
   create_table "auctions", force: :cascade do |t|
     t.string "title"
     t.date "date"
-    t.string "status"
+    t.integer "status", default: 0
     t.integer "amount_collected"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,17 +37,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_052327) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.string "quality"
-    t.string "category"
+    t.integer "quality", default: 0
+    t.integer "category", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "members", force: :cascade do |t|
     t.string "username"
-    t.string "rank"
+    t.integer "rank", default: 0
     t.string "email"
-    t.string "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

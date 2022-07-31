@@ -10,7 +10,7 @@
     </div>
     <div>
         <%= f.label :status %>
-        <%= f.select :status, ["Planned", "In Progress", "Completed", "Cancelled"] %>
+        <%= f.select :status, options_for_select(Auction.statuses.keys, auction.status) %>
     </div>
     <div>
         <%= f.label :amount_collected %>

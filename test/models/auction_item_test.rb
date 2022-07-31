@@ -5,7 +5,7 @@
 #  id             :integer          not null, primary key
 #  opening_bid    :integer
 #  sold_for       :integer
-#  payment_status :string
+#  payment_status :integer          default("pending")
 #  is_bundle      :boolean
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null

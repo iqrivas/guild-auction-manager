@@ -2,8 +2,8 @@ class AuctionsController < ApplicationController
   before_action :set_auction, only: [:show, :edit, :update]
     
   def index
-    @planned_auctions = Auction.where(status: 'Planned').sort_by(&:date)
-    @completed_auctions = Auction.where(status: 'Completed').sort_by(&:date)
+    @scheduled_auctions = Auction.where(status: 1).sort_by(&:date)
+    @completed_auctions = Auction.where(status: 3).sort_by(&:date)
   end
 
   def new
