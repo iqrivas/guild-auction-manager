@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string
-#  quality    :integer          default("gold")
+#  quality    :integer          default("Gold")
 #  category   :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

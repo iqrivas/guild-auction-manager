@@ -4,9 +4,9 @@
 #
 #  id         :integer          not null, primary key
 #  username   :string
-#  rank       :integer          default("founder")
+#  rank       :integer          default("Founder")
 #  email      :string
-#  status     :integer          default("inactive")
+#  status     :integer          default("Inactive")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
