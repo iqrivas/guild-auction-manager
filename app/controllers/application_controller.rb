@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
         flash[:alert] = "You are not authorized to perform this action."
         redirect_to(request.referrer || root_path)
     end
+
+    def after_sign_in_path_for(resource)
+        root_path
+    end
 end

@@ -1,5 +1,6 @@
 class AuctionsController < ApplicationController
   before_action :set_auction, only: [:show, :edit, :update]
+  before_action :skip_authorization, only: :index
 
   def index
     @auctions = policy_scope(Auction.all)
@@ -19,7 +20,6 @@ class AuctionsController < ApplicationController
   end
 
   def edit
-    @auction = authorize Auction.all
   end
 
   def update

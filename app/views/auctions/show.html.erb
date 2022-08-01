@@ -4,7 +4,7 @@
 <p> Status: <%= @auction.status %> </p>
 <p> Amount Collected: <%= @auction.amount_collected %> </p>
 
-<%= link_to "Back to Auctions", auctions_path %>
+<%= link_to "Back to Auctions", auctions_path %> |
 <% if policy(@auction).edit? %>
     <%= link_to "Edit Auction Details", edit_auction_path(id:@auction.id)  %> </br>
 <% end %>
@@ -23,11 +23,13 @@
             <ul>
                 <li><strong>Quality:</strong> <%= a_item.item.quality %></li>
                 <li><strong>Opening Bid:</strong> <%= a_item.opening_bid %></li>
-                <li><strong>Sold for:</strong> <%= a_item.sold_for%></li>
-                <%if a_item.member.present? %>
-                    <li><strong>Buyer:</strong> <%= a_item.member.username%></li>
+                <% if @auction.status == 'Completed' %>
+                    <li><strong>Sold for:</strong> <%= a_item.sold_for%></li>
+                    <%if a_item.member.present? %>
+                        <li><strong>Buyer:</strong> <%= a_item.member.username%></li>
+                    <% end %>
+                    <li><strong>Payment Status:</strong> <%= a_item.payment_status%></li>
                 <% end %>
-                <li><strong>Payment Status:</strong> <%= a_item.payment_status%></li>
             </ul>
         </li>
     <% end %>
