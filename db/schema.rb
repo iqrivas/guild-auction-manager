@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_01_065338) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_01_211201) do
   create_table "auction_items", force: :cascade do |t|
     t.integer "opening_bid"
     t.integer "sold_for"
@@ -33,6 +33,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_065338) do
     t.integer "amount_collected"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "bids", force: :cascade do |t|
+    t.string "message"
+    t.string "status"
+    t.integer "bid_amount"
+    t.integer "member_id", null: false
+    t.integer "auction_item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["auction_item_id"], name: "index_bids_on_auction_item_id"
+    t.index ["member_id"], name: "index_bids_on_member_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -76,5 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_065338) do
   add_foreign_key "auction_items", "auctions"
   add_foreign_key "auction_items", "items"
   add_foreign_key "auction_items", "members"
+  add_foreign_key "bids", "auction_items"
+  add_foreign_key "bids", "members"
   add_foreign_key "items", "categories"
 end

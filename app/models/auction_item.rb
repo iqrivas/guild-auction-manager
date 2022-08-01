@@ -19,6 +19,8 @@ class AuctionItem < ApplicationRecord
     belongs_to :item
     belongs_to :member, optional: true
 
+    has_many :bids
+
     enum payment_status: [:Pending, :Paid, :Cancelled]
 
 end

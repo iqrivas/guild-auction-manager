@@ -8,6 +8,7 @@ class AuctionItemsController < ApplicationController
 
   # GET /auction_items/1 or /auction_items/1.json
   def show
+    @bids = Bid.where(auction_item_id: @auction_item.id).sort_by(&:created_at).reverse
   end
 
   # GET /auction_items/new

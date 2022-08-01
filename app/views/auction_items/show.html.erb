@@ -13,3 +13,13 @@
     <%= button_to "Destroy this auction item", @auction_item, method: :delete %>
   <% end %>
 </div>
+
+<h2>Bids</h2>
+<%= link_to "New Bid", new_bid_path(:auction_item => @auction_item.id) %>
+<input type="hidden" value='<%= @auction_item.id %>' id="auction_item_id">
+
+<ul id='bid_wrapper'>
+  <% @bids.each do |bid| %>
+    <%= render 'bids/bid', bid: bid %>
+  <% end %>
+</ul>

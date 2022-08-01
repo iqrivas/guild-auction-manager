@@ -2,6 +2,7 @@
 #
 
 Rails.application.routes.draw do
+  resources :bids
   resources :categories
   devise_for :users
   resources :items

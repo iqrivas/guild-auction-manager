@@ -16,7 +16,8 @@
 <ul>
     <% @auction_items.each do |a_item| %>
         <li>
-            <%= a_item.item.name %>
+            <%= a_item.item.name %> |
+            <%= link_to "View", auction_item_path(a_item.id)  %> |
             <% if policy(@auction).edit? %>
                 <%= link_to "Edit", edit_auction_item_path(a_item.id)  %>
             <% end %>

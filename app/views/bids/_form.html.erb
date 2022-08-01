@@ -1,0 +1,25 @@
+<%= form_with(model: bid) do |form| %>
+  <% if bid.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bid.errors.count, "error") %> prohibited this bid from being saved:</h2>
+
+      <ul>
+        <% bid.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :auction_item_id %>
+  <%= form.hidden_field :member_id, value: current_user.id %>
+
+  <div>
+    <%= form.label :bid_amount, style: "display: block" %>
+    <%= form.number_field :bid_amount %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
