@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_01_054700) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_01_065338) do
   create_table "auction_items", force: :cascade do |t|
     t.integer "opening_bid"
     t.integer "sold_for"
@@ -44,9 +44,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_054700) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.integer "quality", default: 0
-    t.integer "category", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -75,4 +76,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_054700) do
   add_foreign_key "auction_items", "auctions"
   add_foreign_key "auction_items", "items"
   add_foreign_key "auction_items", "members"
+  add_foreign_key "items", "categories"
 end

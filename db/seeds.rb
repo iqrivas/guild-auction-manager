@@ -9,13 +9,16 @@
 member1 = Member.create(username: "member1", rank: 0, email: "", status: 1)
 member2 = Member.create(username: "member2", rank: 1, email: "", status: 1)
 
+user1 = User.create(email: "admin@email.com", password: "123123", role: "admin")
+user2 = User.create(email: "guest@email.com", password: "123456")
+
 category1 = Category.create(name: "Furnishings")
 category2 = Category.create(name: "Motifs")
 category3 = Category.create(name: "Recipes")
 
-item1 = Item.create(name: "Item 1", quality: 1, category: category1.id)
-item2 = Item.create(name: "Item 2", quality: 3, category: category2.id)
-item3 = Item.create(name: "Item 3", quality: 2, category: category3.id)
+item1 = Item.create(name: "Furnishing 1", quality: 1, category_id: category1.id)
+item2 = Item.create(name: "Motif 2", quality: 3, category_id: category2.id)
+item3 = Item.create(name: "Recipe 3", quality: 2, category_id: category3.id)
 
 auction1 = Auction.create(title: "July Auction", date: Date.new(2022,7,25), status: 3)
 auction2 = Auction.create(title: "August Auction", date: Date.new(2022,8,25), status: 1)
