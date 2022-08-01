@@ -1,17 +1,16 @@
 class AuctionsController < ApplicationController
   before_action :set_auction, only: [:show, :edit, :update]
-    
+
   def index
-    @scheduled_auctions = Auction.where(status: 1).sort_by(&:date)
-    @completed_auctions = Auction.where(status: 3).sort_by(&:date)
+    @auctions = policy_scope(Auction.all)
   end
 
   def new
-    @auction = Auction.new 
+    @auction = authorize Auction.new
   end
 
   def create
-    @auction = Auction.create auction_params_create
+    @auction = authorize Auction.create auction_params_create
     redirect_to auctions_path
   end
 
