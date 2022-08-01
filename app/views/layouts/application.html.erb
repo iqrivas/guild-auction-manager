@@ -11,8 +11,8 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="notice" style="color: green"><%= notice %></p>
+    <p class="alert" style="color: red"><%= alert %></p>
 
     <% if user_signed_in? %>
       <%= link_to current_user.email, edit_user_registration_path %>

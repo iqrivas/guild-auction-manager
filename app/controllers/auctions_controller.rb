@@ -15,14 +15,15 @@ class AuctionsController < ApplicationController
   end
 
   def show
-    @auction_items = AuctionItem.where(auction_id: @auction.id)
+    @auction_items = authorize AuctionItem.where(auction_id: @auction.id)
   end
 
   def edit
+    @auction = authorize Auction.all
   end
 
   def update
-    @auction.update auction_params_update
+    authorize @auction.update auction_params_update
     redirect_to auctions_path
   end
 

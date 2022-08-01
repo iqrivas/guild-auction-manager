@@ -25,7 +25,9 @@
 
   <p>
     <strong>Buyer:</strong>
-    <%= auction_item.member.username %>
+    <% if auction_item.member.present? %>
+      <%= auction_item.member.username %>
+    <% end %>
   </p>
 
   <p>

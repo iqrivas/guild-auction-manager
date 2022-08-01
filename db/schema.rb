@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_31_215839) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_01_030115) do
   create_table "auction_items", force: :cascade do |t|
     t.integer "opening_bid"
     t.integer "sold_for"
@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_31_215839) do
     t.datetime "updated_at", null: false
     t.integer "auction_id", null: false
     t.integer "item_id", null: false
-    t.integer "member_id", null: false
+    t.integer "member_id"
     t.index ["auction_id"], name: "index_auction_items_on_auction_id"
     t.index ["item_id"], name: "index_auction_items_on_item_id"
     t.index ["member_id"], name: "index_auction_items_on_member_id"

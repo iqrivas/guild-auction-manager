@@ -1,11 +1,15 @@
-<p style="color: green"><%= notice %></p>
+
 <h1>Auction Item Details</h1>
 
 <%= render @auction_item %>
 
 <div>
-  <%= link_to "Edit this Auction Item", edit_auction_item_path(@auction_item) %> |
-  <%= link_to "Back to Auction", show_auction_path(@auction_item.auction.id) %>
+  <% if policy(@auction_item).edit? %>
+    <%= link_to "Edit this Auction Item", edit_auction_item_path(@auction_item) %>
+  <% end %><br>
+  <%= link_to "Back to Auction", show_auction_path(@auction_item.auction) %>
 
-  <%= button_to "Destroy this auction item", @auction_item, method: :delete %>
+  <% if policy(@auction_item).destroy? %>
+    <%= button_to "Destroy this auction item", @auction_item, method: :delete %>
+  <% end %>
 </div>
