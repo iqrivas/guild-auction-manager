@@ -1,9 +1,19 @@
 <h1>New bid</h1>
+<input type="hidden" value='<%= @bid.auction_item_id %>' id="auction_item_id">
+
+<p>
+  <strong>Auction:</strong>
+  <%= @bid.auction_item.auction.title %>
+</p>
+<p>
+  <strong>Auction Item:</strong>
+  <%= @bid.auction_item.item.name %>
+</p>
 
 <%= render "form", bid: @bid %>
 
 <br>
 
 <div>
-  <%= link_to "Back to bids", bids_path %>
+  <%= link_to "Back to Auction Item", auction_item_path(@bid.auction_item_id) %>
 </div>

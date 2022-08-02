@@ -12,7 +12,7 @@ class BidsController < ApplicationController
 
   # GET /bids/new
   def new
-    @bid = Bid.new
+    @bid = Bid.new(auction_item_id: params[:auction_item], member_id: current_user.id)
   end
 
   # GET /bids/1/edit
@@ -25,8 +25,8 @@ class BidsController < ApplicationController
 
     respond_to do |format|
       if @bid.save
-        format.html { redirect_to bid_url(@bid), notice: "Bid was successfully created." }
-        format.json { render :show, status: :created, location: @bid }
+        format.html { redirect_to auction_item_url(@bid.auction_item), notice: "Bid was successfully created." }
+        format.json { render :show, status: :created, location: @bid.auction }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @bid.errors, status: :unprocessable_entity }

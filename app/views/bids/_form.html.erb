@@ -16,15 +16,8 @@
     <%= form.number_field :amount %>
   </div>
 
-  <div>
-    <%= form.label :member_id, style: "display: block" %>
-    <%= form.text_field :member_id %>
-  </div>
-
-  <div>
-    <%= form.label :auction_item_id, style: "display: block" %>
-    <%= form.text_field :auction_item_id %>
-  </div>
+  <%= form.hidden_field :member_id %>
+  <%= form.hidden_field :auction_item_id %>
 
   <div>
     <%= form.submit %>
