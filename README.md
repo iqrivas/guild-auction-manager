@@ -35,6 +35,10 @@ Here are some of the features:
 - TODO: Add Unit Testing
 - TODO: Add Job infrastructure (Active Job)
 
+# Entity Relationships Diagram
+
+<a href="https://ibb.co/2NJK9JC"><img src="https://i.ibb.co/yS2s92Z/erd-guild.png" alt="erd-guild" border="0"></a>
+
 ## Challenges faced during the project
 
 - Getting the websockets to work was a bit confusing at first since ActionCable was not working properly until I setup Redis. Once this was running, setting up the channels and messages was not complicated.
@@ -45,26 +49,71 @@ Here are some of the features:
 ## Run Locally
 
 The project uses the following:
-    - Ruby version 3.1.2
-    - Redis for ActionCable
-    - Devise for Authentication
-    - Pundit for Authorization
-    - main branch uses sqlite3 database
+- Ruby version 3.1.2
+- Redis for ActionCable
+- Devise for Authentication
+- Pundit for Authorization
+- main branch uses sqlite3 database
 
-To clone this project and run it on your own computer, use the following commands:
+To run the project, consider the following:
 
-    git clone https://github.com/iqrivas/guild-auction-manager.git
+    # You must have Ruby installed
 
-    # Go into the repository
-	$ cd guild-auction-manager
+    # 1. Install a Ruby version manager
 
-    # Install dependencies
-    $ bundle install
+    # Install rbenv from github repo
+    # https://github.com/rbenv/rbenv#basic-github-checkout
+    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+    # Restart console
+    eval "$(rbenv init - bash)" >> ~/.bashrc
+    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-doctor | bash
+    # Check your versions
+    rbenv -v
+    ruby -v
+    # Install Ruby version & set global or local version
+    rbenv install 3.1.2
+    rbenv global 3.1.2
 
-You will need some servers running for the app to work:
+    # Clone the repository, access repository and install dependencies
+    https://github.com/iqrivas/guild-auction-manager.git
+    cd guild-auction-manager
+    bundle install
+    rbenv rehash
+
+    # Run migrations
+    rails db:migrate
+    # Add some sample data
+    rails db:seed
+
+    #To be able to use the rails-erd gem, you will need Graphviz
+    sudo apt-get install graphviz
+
+You will need some servers to get the app running:
+
+    # If you don't have Redis you can install
+    sudo apt install redis
+    # Start the Redis Server
+    $ redis-server
 
     # Start a Rails Server
     $ rails server
 
-    # Start the Redis Server
-    $ redis-server
+Open localhost:3000 in your browser
+
+You can Sign up to create a User with the Member Role or you can sign in as Admin to review full features
+
+Admin Credentials:
+- Email: admin@email.com
+- Password: 123123
+
+
+# Application Interface
+
+**Admin Role -  After Login View - Auctions List **
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/c8zcZ6v/auctions.png" alt="auctions" border="0"></a>
+
+**Admin Role - Auctions Details View **
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/MfW7915/auction-details.png" alt="auction-details" border="0"></a>
+
+**Admin Role - Auctions Item Details View **
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/zRcw5b1/auctionitem.png" alt="auctionitem" border="0"></a>
