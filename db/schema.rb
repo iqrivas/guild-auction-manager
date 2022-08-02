@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_08_02_012320) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "auction_items", force: :cascade do |t|
     t.integer "opening_bid"
     t.integer "sold_for"
@@ -18,8 +21,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_02_012320) do
     t.boolean "is_bundle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "auction_id", null: false
-    t.integer "item_id", null: false
+    t.bigint "auction_id", null: false
+    t.bigint "item_id", null: false
     t.integer "member_id"
     t.index ["auction_id"], name: "index_auction_items_on_auction_id"
     t.index ["item_id"], name: "index_auction_items_on_item_id"
@@ -39,8 +42,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_02_012320) do
     t.string "message"
     t.string "status"
     t.integer "amount"
-    t.integer "member_id", null: false
-    t.integer "auction_item_id", null: false
+    t.bigint "member_id", null: false
+    t.bigint "auction_item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["auction_item_id"], name: "index_bids_on_auction_item_id"
@@ -58,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_02_012320) do
     t.integer "quality", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id", null: false
+    t.bigint "category_id", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
   end
 
