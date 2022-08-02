@@ -8,9 +8,10 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  user_id         :integer
+#  member_id       :integer
 #
 class Bid < ApplicationRecord
-  belongs_to :member
+  belongs_to :member, optional:true
   belongs_to :auction_item
   belongs_to :user
 

@@ -12,7 +12,7 @@ class BidsController < ApplicationController
 
   # GET /bids/new
   def new
-    @bid = Bid.new(auction_item_id: params[:auction_item], member_id: current_user.id)
+    @bid = Bid.new(auction_item_id: params[:auction_item], user_id: current_user.id)
   end
 
   # GET /bids/1/edit
@@ -38,8 +38,8 @@ class BidsController < ApplicationController
   def update
     respond_to do |format|
       if @bid.update(bid_params)
-        format.html { redirect_to bid_url(@bid), notice: "Bid was successfully updated." }
-        format.json { render :show, status: :ok, location: @bid }
+        format.html { redirect_to auction_item_url(@bid.auction_item), notice: "Bid was successfully updated." }
+        format.json { render :show, status: :ok, location: @bid.auction_item }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @bid.errors, status: :unprocessable_entity }
@@ -65,6 +65,6 @@ class BidsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bid_params
-      params.require(:bid).permit(:amount, :member_id, :auction_item_id)
+      params.require(:bid).permit(:amount, :user_id, :auction_item_id)
     end
 end

@@ -23,7 +23,7 @@ class AuctionsController < ApplicationController
   end
 
   def update
-    authorize @auction.update auction_params_update
+    @auction.update auction_params_update
     redirect_to auctions_path
   end
 

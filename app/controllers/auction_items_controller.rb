@@ -27,8 +27,8 @@ class AuctionItemsController < ApplicationController
 
     respond_to do |format|
       if @auction_item.save
-        format.html { redirect_to auction_item_url(@auction_item), notice: "Auction item was successfully created." }
-        format.json { render :show, status: :created, location: @auction_item }
+        format.html { redirect_to auction_url(@auction_item.auction), notice: "Auction item was successfully created." }
+        format.json { render :show, status: :created, location: @auction_item.auction }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @auction_item.errors, status: :unprocessable_entity }
@@ -40,8 +40,8 @@ class AuctionItemsController < ApplicationController
   def update
     respond_to do |format|
       if @auction_item.update(auction_item_params)
-        format.html { redirect_to auction_item_url(@auction_item), notice: "Auction item was successfully updated." }
-        format.json { render :show, status: :ok, location: @auction_item }
+        format.html { redirect_to auction_url(@auction_item.auction), notice: "Auction item was successfully updated." }
+        format.json { render :show, status: :ok, location: @auction_item.auction }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @auction_item.errors, status: :unprocessable_entity }

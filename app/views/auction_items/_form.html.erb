@@ -30,7 +30,7 @@
 
   <div>
     <%= form.label :buyer, style: "display: block" %>
-    <%= form.select :member_id, Member.all.collect { |m| [ m.username, m.id ] }, include_blank: true %>
+    <%= form.select :user_id, User.all.collect { |u| [ u.username, u.id ] }, include_blank: true %>
   </div>
 
   <div>

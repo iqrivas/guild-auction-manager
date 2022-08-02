@@ -12,6 +12,7 @@
 #
 class Member < ApplicationRecord
     has_many :auction_items
+    has_many :bids
 
     enum status: [:Inactive, :Active, :Blocked]
     enum rank: [:Founder, :Officer, :Member, :Friend]
