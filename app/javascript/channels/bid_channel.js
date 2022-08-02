@@ -1,6 +1,6 @@
 import consumer from "channels/consumer"
 
-const auction_item = document.getElementById('auction_item_id').value
+const auction_item = document.getElementById('auction_item_id')?.value
 
 consumer.subscriptions.create( {channel: "BidChannel", auction_item_id: auction_item}, {
   connected() {

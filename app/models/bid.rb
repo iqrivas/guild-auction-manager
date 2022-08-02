@@ -5,7 +5,7 @@
 #  id              :integer          not null, primary key
 #  message         :string
 #  status          :string
-#  bid_amount      :integer
+#  amount          :integer
 #  member_id       :integer          not null
 #  auction_item_id :integer          not null
 #  created_at      :datetime         not null
