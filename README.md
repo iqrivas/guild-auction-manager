@@ -110,10 +110,16 @@ Admin Credentials:
 # Application Interface
 
 **Admin Role -  After Login View - Auctions List **
+<p>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/c8zcZ6v/auctions.png" alt="auctions" border="0"></a>
+</p>
 
 **Admin Role - Auctions Details View **
+<p>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/MfW7915/auction-details.png" alt="auction-details" border="0"></a>
+</p>
 
 **Admin Role - Auctions Item Details View **
+<p>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/zRcw5b1/auctionitem.png" alt="auctionitem" border="0"></a>
+</p>
