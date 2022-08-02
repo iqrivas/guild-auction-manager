@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_02_012320) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_02_085304) do
   create_table "auction_items", force: :cascade do |t|
     t.integer "opening_bid"
     t.integer "sold_for"
@@ -20,10 +20,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_02_012320) do
     t.datetime "updated_at", null: false
     t.integer "auction_id", null: false
     t.integer "item_id", null: false
-    t.integer "member_id"
+    t.integer "user_id"
     t.index ["auction_id"], name: "index_auction_items_on_auction_id"
     t.index ["item_id"], name: "index_auction_items_on_item_id"
-    t.index ["member_id"], name: "index_auction_items_on_member_id"
+    t.index ["user_id"], name: "index_auction_items_on_user_id"
   end
 
   create_table "auctions", force: :cascade do |t|
@@ -36,15 +36,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_02_012320) do
   end
 
   create_table "bids", force: :cascade do |t|
-    t.string "message"
-    t.string "status"
     t.integer "amount"
-    t.integer "member_id", null: false
     t.integer "auction_item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["auction_item_id"], name: "index_bids_on_auction_item_id"
-    t.index ["member_id"], name: "index_bids_on_member_id"
+    t.index ["user_id"], name: "index_bids_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -79,7 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_02_012320) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "role"
+    t.integer "role", default: 0
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -87,8 +85,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_02_012320) do
 
   add_foreign_key "auction_items", "auctions"
   add_foreign_key "auction_items", "items"
-  add_foreign_key "auction_items", "members"
+  add_foreign_key "auction_items", "users"
   add_foreign_key "bids", "auction_items"
-  add_foreign_key "bids", "members"
+  add_foreign_key "bids", "users"
   add_foreign_key "items", "categories"
 end

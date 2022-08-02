@@ -9,8 +9,9 @@
 member1 = Member.create(username: "member1", rank: 0, email: "", status: 1)
 member2 = Member.create(username: "member2", rank: 1, email: "", status: 1)
 
-user1 = User.create(email: "admin@email.com", password: "123123", role: "admin")
-user2 = User.create(email: "guest@email.com", password: "123456")
+user1 = User.create(email: "admin@email.com", password: "123123", role: 1, username:'marvel')
+user2 = User.create(email: "member@email.com", password: "123456", role: 0, username:'america')
+user2 = User.create(email: "guest@email.com", password: "123456", role: 0, username:'strange')
 
 category1 = Category.create(name: "Furnishings")
 category2 = Category.create(name: "Motifs")

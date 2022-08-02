@@ -10,10 +10,16 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  role                   :string
+#  role                   :integer          default("member")
 #  username               :string
 #
 class User < ApplicationRecord
+
+  has_many :bids
+  has_many :auction_items
+
+  enum role: [:member, :admin]
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

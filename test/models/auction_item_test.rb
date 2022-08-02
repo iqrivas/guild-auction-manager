@@ -11,7 +11,7 @@
 #  updated_at     :datetime         not null
 #  auction_id     :integer          not null
 #  item_id        :integer          not null
-#  member_id      :integer
+#  user_id        :integer
 #
 require "test_helper"
 

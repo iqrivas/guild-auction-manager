@@ -10,5 +10,4 @@
 class Category < ApplicationRecord
     has_many :items
     has_many :auction_items, through: :items
-    has_many :auctions, through: :auction_items
 end
