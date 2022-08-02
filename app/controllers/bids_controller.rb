@@ -12,9 +12,7 @@ class BidsController < ApplicationController
 
   # GET /bids/new
   def new
-    @auction_item_id = AuctionItem.find(params[:auction_item])
-    @bid = Bid.new(auction_item: @auction_item_id)
-    @current_user = current_user
+    @bid = Bid.new
   end
 
   # GET /bids/1/edit
@@ -24,12 +22,11 @@ class BidsController < ApplicationController
   # POST /bids or /bids.json
   def create
     @bid = Bid.new(bid_params)
-    @auction_item= AuctionItem.find(params[:auction_item])
 
     respond_to do |format|
       if @bid.save
-        format.html { redirect_to auction_item_url(@auction_item), notice: "Bid was successfully created." }
-        format.json { render :show, status: :created, location: @auction_item}
+        format.html { redirect_to bid_url(@bid), notice: "Bid was successfully created." }
+        format.json { render :show, status: :created, location: @bid }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @bid.errors, status: :unprocessable_entity }
@@ -68,6 +65,6 @@ class BidsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bid_params
-      params.require(:bid).permit(:message, :status, :bid_amount, :member_id, :auction_item_id)
+      params.require(:bid).permit(:amount, :member_id, :auction_item_id)
     end
 end

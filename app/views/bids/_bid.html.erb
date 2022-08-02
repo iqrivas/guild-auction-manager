@@ -1,1 +1,17 @@
-<li><%= bid.member.username %> bid <%= bid.bid_amount %> on <%= bid.auction_item.item.name %> at <%= bid.created_at %> </li>
+<div id="<%= dom_id bid %>">
+  <p>
+    <strong>Amount:</strong>
+    <%= bid.amount %>
+  </p>
+
+  <p>
+    <strong>Member:</strong>
+    <%= bid.member_id %>
+  </p>
+
+  <p>
+    <strong>Auction item:</strong>
+    <%= bid.auction_item_id %>
+  </p>
+
+</div>

@@ -11,12 +11,19 @@
     </div>
   <% end %>
 
-  <%= form.hidden_field :auction_item_id %>
-  <%= form.hidden_field :member_id, value: current_user.id %>
+  <div>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.number_field :amount %>
+  </div>
 
   <div>
-    <%= form.label :bid_amount, style: "display: block" %>
-    <%= form.number_field :bid_amount %>
+    <%= form.label :member_id, style: "display: block" %>
+    <%= form.text_field :member_id %>
+  </div>
+
+  <div>
+    <%= form.label :auction_item_id, style: "display: block" %>
+    <%= form.text_field :auction_item_id %>
   </div>
 
   <div>

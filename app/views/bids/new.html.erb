@@ -1,9 +1,9 @@
 <h1>New bid</h1>
 
-<%= render "form", bid: @bid, current_user:@current_user %>
+<%= render "form", bid: @bid %>
 
 <br>
 
 <div>
-  <%= link_to "Back to Auction Item", url_for(:back) %>
+  <%= link_to "Back to bids", bids_path %>
 </div>
