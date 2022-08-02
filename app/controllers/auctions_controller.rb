@@ -1,27 +1,29 @@
 class AuctionsController < ApplicationController
   before_action :set_auction, only: [:show, :edit, :update]
-    
+  before_action :skip_authorization, only: :index
+
   def index
-    @auctions = Auction.where(status: 'Planned').sort_by(&:date)
+    @auctions = policy_scope(Auction.all)
   end
 
   def new
-    @auction = Auction.new 
+    @auction = authorize Auction.new
   end
 
   def create
-    @auction = Auction.create auction_params_create
+    @auction = authorize Auction.create auction_params_create
     redirect_to auctions_path
   end
 
   def show
+    @auction_items = authorize AuctionItem.where(auction_id: @auction.id)
   end
 
   def edit
   end
 
   def update
-    @auction.update auction_params_update
+    authorize @auction.update auction_params_update
     redirect_to auctions_path
   end
 

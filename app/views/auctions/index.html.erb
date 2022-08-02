@@ -1,11 +1,48 @@
-<h1>Auctions</h1>
+<h1>Guild Auctions</h1>
+
+<% if policy(@auctions).new? %>
+    <%= link_to "New Auction", new_auction_path %>
+<% end %>
+
 <p> Next Events: </p>
 <ul>
     <% @auctions.each do |auction| %>
-        <li>
-            on <%= auction.date %>: <%= link_to auction.title, show_auction_path(id:auction.id) %>
-        </li> 
+        <% if auction.status == 'Scheduled' %>
+            <li>
+                on <%= auction.date %>: <%= link_to auction.title, show_auction_path(id:auction.id) %>
+            </li>
+        <% end %>
     <% end %>
 </ul>
-
-<%= link_to "New Auction", new_auction_path %>
+<p> Completed Events: </p>
+<ul>
+    <% @auctions.each do |auction| %>
+        <% if auction.status == 'Completed' %>
+            <li>
+                on <%= auction.date %>: <%= link_to auction.title, show_auction_path(id:auction.id) %>
+            </li>
+        <% end %>
+    <% end %>
+</ul>
+<% if current_user.role == 'admin' %>
+    <p> Drafts: </p>
+    <ul>
+        <% @auctions.each do |auction| %>
+            <% if auction.status == 'Draft' %>
+                <li>
+                    on <%= auction.date %>: <%= link_to auction.title, show_auction_path(id:auction.id) %>
+                </li>
+            <% end %>
+        <% end %>
+    </ul>
+    <p> Cancelled Events: </p>
+    <ul>
+        <% @auctions.each do |auction| %>
+            <% if auction.status == 'Cancelled' %>
+                <li>
+                    on <%= auction.date %>: <%= link_to auction.title, show_auction_path(id:auction.id) %>
+                </li>
+            <% end %>
+        <% end %>
+    </ul>
+<% end %>

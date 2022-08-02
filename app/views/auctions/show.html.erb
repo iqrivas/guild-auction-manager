@@ -4,5 +4,34 @@
 <p> Status: <%= @auction.status %> </p>
 <p> Amount Collected: <%= @auction.amount_collected %> </p>
 
-<%= link_to "Edit Details", edit_auction_path(id:@auction.id)  %> </br>
-<%= link_to "Home", auctions_path %>
+<%= link_to "Back to Auctions", auctions_path %> |
+<% if policy(@auction).edit? %>
+    <%= link_to "Edit Auction Details", edit_auction_path(id:@auction.id)  %> </br>
+<% end %>
+
+<h3> Auction Items </h3>
+<% if policy(@auction).new? %>
+    <%= link_to "New Auction Item", new_auction_item_path(:auction => @auction.id)  %>
+<% end %>
+<ul>
+    <% @auction_items.each do |a_item| %>
+        <li>
+            <%= a_item.item.name %> |
+            <%= link_to "View", auction_item_path(a_item.id)  %> |
+            <% if policy(@auction).edit? %>
+                <%= link_to "Edit", edit_auction_item_path(a_item.id)  %>
+            <% end %>
+            <ul>
+                <li><strong>Quality:</strong> <%= a_item.item.quality %></li>
+                <li><strong>Opening Bid:</strong> <%= a_item.opening_bid %></li>
+                <% if @auction.status == 'Completed' %>
+                    <li><strong>Sold for:</strong> <%= a_item.sold_for%></li>
+                    <%if a_item.member.present? %>
+                        <li><strong>Buyer:</strong> <%= a_item.member.username%></li>
+                    <% end %>
+                    <li><strong>Payment Status:</strong> <%= a_item.payment_status%></li>
+                <% end %>
+            </ul>
+        </li>
+    <% end %>
+</ul>

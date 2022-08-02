@@ -6,16 +6,24 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-member1 = Member.create(username: "member1", rank: "officer", email: "", status: "active")
-member2 = Member.create(username: "member2", rank: "officer", email: "", status: "active")
+member1 = Member.create(username: "member1", rank: 0, email: "", status: 1)
+member2 = Member.create(username: "member2", rank: 1, email: "", status: 1)
 
-item1 = Item.create(name: "Item 1", quality: "Purple", category: "Furnishings")
-item2 = Item.create(name: "Item 2", quality: "Green", category: "Motifs")
-item3 = Item.create(name: "Item 3", quality: "Blue", category: "Non-combat Pet")
+user1 = User.create(email: "admin@email.com", password: "123123", role: "admin")
+user2 = User.create(email: "guest@email.com", password: "123456")
 
-auction1 = Auction.create(title: "July Auction", date: Date.new(2022,7,25), status: "Planned")
-auction2 = Auction.create(title: "August Auction", date: Date.new(2022,8,25), status: "Planned")
+category1 = Category.create(name: "Furnishings")
+category2 = Category.create(name: "Motifs")
+category3 = Category.create(name: "Recipes")
 
-auction_item1 = AuctionItem.create(opening_bid: 100, sold_for: nil, payment_status: "Pending", is_bundle: false, auction_id: auction1.id, item_id: item1.id, member_id: member1.id)
-auction_item2 = AuctionItem.create(opening_bid: 200, sold_for: nil, payment_status: "Pending", is_bundle: false, auction_id: auction1.id, item_id: item2.id, member_id: member2.id)
-auction_item3 = AuctionItem.create(opening_bid: 300, sold_for: nil, payment_status: "Pending", is_bundle: false, auction_id: auction2.id, item_id: item3.id, member_id: member2.id)
+item1 = Item.create(name: "Furnishing 1", quality: 1, category_id: category1.id)
+item2 = Item.create(name: "Motif 2", quality: 3, category_id: category2.id)
+item3 = Item.create(name: "Recipe 3", quality: 2, category_id: category3.id)
+
+auction1 = Auction.create(title: "July Auction", date: Date.new(2022,7,25), status: 3)
+auction2 = Auction.create(title: "August Auction", date: Date.new(2022,8,25), status: 1)
+auction3 = Auction.create(title: "September Auction", date: Date.new(2022,9,25), status: 0)
+
+auction_item1 = AuctionItem.create(opening_bid: 100, sold_for: nil, payment_status: 0, is_bundle: false, auction_id: auction1.id, item_id: item1.id, member_id: member1.id)
+auction_item2 = AuctionItem.create(opening_bid: 200, sold_for: nil, payment_status: 0, is_bundle: false, auction_id: auction1.id, item_id: item2.id, member_id: member2.id)
+auction_item3 = AuctionItem.create(opening_bid: 300, sold_for: nil, payment_status: 0, is_bundle: false, auction_id: auction2.id, item_id: item3.id, member_id: member2.id)

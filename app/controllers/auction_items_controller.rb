@@ -3,16 +3,18 @@ class AuctionItemsController < ApplicationController
 
   # GET /auction_items or /auction_items.json
   def index
-    @auction_items = AuctionItem.all
+    @auction_items = policy_scope(AuctionItem.all)
   end
 
   # GET /auction_items/1 or /auction_items/1.json
   def show
+    @bids = Bid.where(auction_item_id: @auction_item.id).sort_by(&:created_at).reverse
   end
 
   # GET /auction_items/new
   def new
-    @auction_item = AuctionItem.new
+    @auction_id = Auction.find(params[:auction])
+    @auction_item = authorize AuctionItem.new(auction: @auction_id)
   end
 
   # GET /auction_items/1/edit
@@ -21,7 +23,7 @@ class AuctionItemsController < ApplicationController
 
   # POST /auction_items or /auction_items.json
   def create
-    @auction_item = AuctionItem.new(auction_item_params)
+    @auction_item = authorize AuctionItem.new(auction_item_params)
 
     respond_to do |format|
       if @auction_item.save
@@ -65,6 +67,6 @@ class AuctionItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def auction_item_params
-      params.require(:auction_item).permit(:opening_bid, :sold_for, :payment_status)
+      params.require(:auction_item).permit(:auction_id, :item_id, :member_id, :opening_bid, :sold_for, :payment_status)
     end
 end

@@ -2,6 +2,9 @@
 #
 
 Rails.application.routes.draw do
+  resources :bids
+  resources :categories
+  devise_for :users
   resources :items
   resources :auction_items
   resources :members
@@ -18,7 +21,7 @@ Rails.application.routes.draw do
   post 'greetings/hello-name', to='greetings#hello_name'
   get 'greetings/goodbye'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  get "home/index"
+  get "auctions/index"
   # Defines the root path route ("/")
-  root "home#index"
+  root "auctions#index"
 end

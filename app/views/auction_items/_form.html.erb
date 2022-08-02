@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :auction_id %>
+
+  <div>
+    <%= form.label :item_id, style: "display: block" %>
+    <%= form.select :item_id, Item.all.collect { |i| [ i.name, i.id ] }, include_blank: true %>
+  </div>
+
   <div>
     <%= form.label :opening_bid, style: "display: block" %>
     <%= form.number_field :opening_bid %>
@@ -22,8 +29,13 @@
   </div>
 
   <div>
+    <%= form.label :buyer, style: "display: block" %>
+    <%= form.select :member_id, Member.all.collect { |m| [ m.username, m.id ] }, include_blank: true %>
+  </div>
+
+  <div>
     <%= form.label :payment_status, style: "display: block" %>
-    <%= form.text_field :payment_status %>
+    <%= form.select :payment_status, options_for_select(AuctionItem.payment_statuses.keys, auction_item.payment_status) %>
   </div>
 
   <div>

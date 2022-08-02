@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :rank, style: "display: block" %>
-    <%= form.text_field :rank %>
+    <%= form.select :rank, options_for_select(Member.ranks.keys, member.rank) %>
   </div>
 
   <div>
@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.select :status, options_for_select(Member.statuses.keys, member.status) %>
   </div>
 
   <div>

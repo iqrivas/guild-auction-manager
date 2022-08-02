@@ -1,5 +1,19 @@
 <div id="<%= dom_id auction_item %>">
   <p>
+    <strong>Item Name:</strong>
+    <%= auction_item.item.name %>
+  </p>
+
+  <p>
+    <strong>Item Quality:</strong>
+    <%= auction_item.item.quality %>
+  </p>
+
+  <p>
+    <strong>Auction:</strong>
+    <%= auction_item.auction.title %>
+  </p>
+  <p>
     <strong>Opening bid:</strong>
     <%= auction_item.opening_bid %>
   </p>
@@ -7,6 +21,13 @@
   <p>
     <strong>Sold for:</strong>
     <%= auction_item.sold_for %>
+  </p>
+
+  <p>
+    <strong>Buyer:</strong>
+    <% if auction_item.member.present? %>
+      <%= auction_item.member.username %>
+    <% end %>
   </p>
 
   <p>

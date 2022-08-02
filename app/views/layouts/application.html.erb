@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Michi</title>
+    <title>🏦 Guild Auction Manager </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,25 @@
   </head>
 
   <body>
+    <p class="notice" style="color: green"><%= notice %></p>
+    <p class="alert" style="color: red"><%= alert %></p>
+
+    <% if user_signed_in? %>
+      <%= link_to current_user.email, edit_user_registration_path %>
+      <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %>
+
+      <nav>
+        <% if current_user.role == 'admin' %>
+            <%= link_to "Manage Auctions", auctions_path %> |
+            <%= link_to "Manage Items", items_path %>  |
+            <%= link_to "Manage Categories", categories_path %>  |
+            <%= link_to "Manage Members", members_path %>
+        <% end %>
+      </nav>
+    <% else %>
+      <% link_to_unless_current "Login", new_user_session_path %>
+      <% link_to_unless_current "Create Account", new_user_registration_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

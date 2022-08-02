@@ -1,10 +1,25 @@
-<p style="color: green"><%= notice %></p>
+
+<h1>Auction Item Details</h1>
 
 <%= render @auction_item %>
 
 <div>
-  <%= link_to "Edit this auction item", edit_auction_item_path(@auction_item) %> |
-  <%= link_to "Back to auction items", auction_items_path %>
+  <% if policy(@auction_item).edit? %>
+    <%= link_to "Edit this Auction Item", edit_auction_item_path(@auction_item) %>
+  <% end %><br>
+  <%= link_to "Back to Auction", show_auction_path(@auction_item.auction) %>
 
-  <%= button_to "Destroy this auction item", @auction_item, method: :delete %>
+  <% if policy(@auction_item).destroy? %>
+    <%= button_to "Destroy this auction item", @auction_item, method: :delete %>
+  <% end %>
 </div>
+
+<h2>Bids</h2>
+<%= link_to "New Bid", new_bid_path(:auction_item => @auction_item.id) %>
+<input type="hidden" value='<%= @auction_item.id %>' id="auction_item_id">
+
+<ul id='bid_wrapper'>
+  <% @bids.each do |bid| %>
+    <%= render 'bids/bid', bid: bid %>
+  <% end %>
+</ul>

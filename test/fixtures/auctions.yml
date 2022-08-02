@@ -5,7 +5,7 @@
 #  id               :integer          not null, primary key
 #  title            :string
 #  date             :date
-#  status           :string
+#  status           :integer          default("Draft")
 #  amount_collected :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null

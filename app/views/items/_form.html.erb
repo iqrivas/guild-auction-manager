@@ -18,7 +18,12 @@
 
   <div>
     <%= form.label :quality, style: "display: block" %>
-    <%= form.text_field :quality %>
+    <%= form.select :quality, options_for_select(Item.qualities.keys, item.quality) %>
+  </div>
+
+  <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.select :category, Category.all.collect { |c| [ c.name, c.id ] }, include_blank: false %>
   </div>
 
   <div>
