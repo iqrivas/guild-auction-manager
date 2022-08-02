@@ -123,3 +123,8 @@ Admin Credentials:
 <p>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/zRcw5b1/auctionitem.png" alt="auctionitem" border="0"></a>
 </p>
+
+** New Bids update in realtime when viewing Auction Item Details **
+<p>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/pRjF8c8/newbodrealtime.gif" alt="newbodrealtime" border="0"></a>
+</p>
