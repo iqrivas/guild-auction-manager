@@ -13,8 +13,8 @@ consumer.subscriptions.create( {channel: "BidChannel", auction_item_id: auction_
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    document.getElementById('bid_wrapper').innerHTML += data
-
-    console.log(data)
+    if (typeof(auction_item) !== 'undefined') {
+      document.getElementById('bid_wrapper').insertAdjacentHTML('afterbegin', data)
+    }
   }
 });
