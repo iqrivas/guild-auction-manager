@@ -87,6 +87,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: guild_auction_manager_production
   username: guild_auction_manager
   password: <%= ENV["PRODUCTION_DATABASE_PASSWORD"] %>
