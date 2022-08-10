@@ -2,7 +2,7 @@
 #
 # Table name: auctions
 #
-#  id               :integer          not null, primary key
+#  id               :bigint           not null, primary key
 #  title            :string
 #  date             :date
 #  status           :integer          default("Draft")

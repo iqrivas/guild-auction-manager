@@ -2,13 +2,13 @@
 #
 # Table name: bids
 #
-#  id              :integer          not null, primary key
+#  id              :bigint           not null, primary key
 #  amount          :integer
-#  auction_item_id :integer          not null
+#  auction_item_id :bigint           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  user_id         :integer
-#  member_id       :integer
+#  user_id         :bigint
+#  member_id       :bigint
 #
 require "test_helper"
 

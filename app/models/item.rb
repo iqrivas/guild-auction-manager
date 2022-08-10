@@ -2,12 +2,12 @@
 #
 # Table name: items
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  name        :string
 #  quality     :integer          default("Gold")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  category_id :integer          not null
+#  category_id :bigint           not null
 #
 class Item < ApplicationRecord
     belongs_to :category

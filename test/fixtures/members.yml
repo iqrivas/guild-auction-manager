@@ -2,7 +2,7 @@
 #
 # Table name: members
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  username   :string
 #  rank       :integer          default("Founder")
 #  email      :string

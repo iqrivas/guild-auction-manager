@@ -2,16 +2,16 @@
 #
 # Table name: auction_items
 #
-#  id             :integer          not null, primary key
+#  id             :bigint           not null, primary key
 #  opening_bid    :integer
 #  sold_for       :integer
 #  payment_status :integer          default("Pending")
 #  is_bundle      :boolean
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  auction_id     :integer          not null
-#  item_id        :integer          not null
-#  user_id        :integer
+#  auction_id     :bigint           not null
+#  item_id        :bigint           not null
+#  user_id        :bigint
 #
 require "test_helper"
 
