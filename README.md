@@ -44,7 +44,7 @@ Here are some of the features:
 - Getting the websockets to work was a bit confusing at first since ActionCable was not working properly until I setup Redis. Once this was running, setting up the channels and messages was not complicated.
 
 -   When transitioning the project from sqlite3 to Postgresql, there were some configuration issues on my machine that took a while to resolve. This was a step required to make a deployment to Heroku since sqlite3 is not supported. I’ll take some more time to follow-up my learning on other deployment options.
-    - TODO: Deploy the application
+    - ~~TODO: Deploy the application~~ Deployed at https://guild-auction-manager.herokuapp.com/
 
 ## Run Locally
 
